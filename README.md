@@ -10,4 +10,4 @@ I am not responsible for any malicious use
 
 ![inddddex](https://user-images.githubusercontent.com/64088838/123517310-8e925c00-d6a0-11eb-87da-14b4be0c1c1c.png)
 
-Discord: SphereLUx#0470
+Discord: LuMix#9925
